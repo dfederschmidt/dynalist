@@ -39,8 +39,3 @@ class Dynalist():
             params[index] = 0
 
         return r.post(SEND_TO_INBOX, data=json.dumps(params)).json()
-
-if __name__ == "__main__":
-    dyn = Dynalist("AwVgFithnTBvUxBwOxZNizIYYpJzuJyFHeJwk66w8oToWZWfe2c9uWnyv1UOUDtJfVMFbFWfNpVIpwNFLK38c8DYLQ_JBJVsSbywHdVz8L0xYQff2XkoFb1KcICPJ8u0")
-    print(dyn.all())
-    #print(dyn.doc("VpfKdXb72Br93aCC1tO2Yf6H"))
