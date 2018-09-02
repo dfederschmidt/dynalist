@@ -3,7 +3,6 @@ import json
 
 FILES_AND_FOLDERS_ENDPOINT = "https://dynalist.io/api/v1/file/list"
 DOCS_ENDPOINT = "https://dynalist.io/api/v1/doc/read"
-
 SEND_TO_INBOX = "https://dynalist.io/api/v1/inbox/add"
 
 class Dynalist():
