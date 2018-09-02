@@ -1,0 +1,7 @@
+site_name: dynalist
+dev_addr: 127.0.0.1:8005
+theme: readthedocs
+pages:
+    - Introduction: index.md
+    - CLI: cli.md
+    - Library: library.md
