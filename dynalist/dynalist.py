@@ -1,5 +1,6 @@
 import requests as r
 import json
+from .exceptions import InvalidTokenError, RateLimitedError
 
 FILES_AND_FOLDERS_ENDPOINT = "https://dynalist.io/api/v1/file/list"
 DOCS_ENDPOINT = "https://dynalist.io/api/v1/doc/read"
@@ -14,7 +15,14 @@ class Dynalist():
             "token": self.token
         }
 
-        return r.post(FILES_AND_FOLDERS_ENDPOINT, data=json.dumps(params)).json()
+        res = r.post(FILES_AND_FOLDERS_ENDPOINT, data=json.dumps(params)).json()
+
+        if res["_code"] == "InvalidToken":
+            raise InvalidTokenError(res["_msg"])
+        if res["_code"] == "TooManyRequests":
+            raise RateLimitedError(res["_msg"])
+
+        return res
 
     def doc(self, id):
         params = {
