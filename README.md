@@ -11,7 +11,7 @@ python -m unittest
 ```
 
 
-## Usage
+## CLI Usage
 
 Get the token from https://dynalist.io/developer and enter for the tool to use by running
 ```bash
@@ -26,4 +26,16 @@ dynalist docs
 Fetch all folders
 ```bash
 dynalist folders
+```
+
+## Library Usage
+You can also interact with dynalist programatically.
+
+```python
+import dynalist
+
+dyn = Dynalist("yourtokenhere")
+dyn.all()
+dyn.doc("documentid")
+dyn.to_inbox("Item to add", "Optional note")
 ```
